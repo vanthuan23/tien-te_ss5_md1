@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .lable {
+            font-family: Georgia;
+            font-size: 25px;
+        }
+
+        .lable2 {
+            font-family: Georgia;
+            font-size: 25px;
+            padding: 10px;
+            margin-left: 80px;
+        }
+
+        .select {
+            font-size: 17px;
+            width: 100px;
+            margin: 10px;
+
+        }
+
+        button {
+            font-size: 17px;
+            margin-left: 40px;
+            border-radius: 5px;
+            background-color: #8e5cb7;
+            border: 2px solid blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<lable class="lable">Amount</lable>
+<input type="text" id="inputAmount">
+<lable class="lable2">From Currency</lable>
+<select class="select" name="VND" id="fromCurrency">
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select>
+<lable class="lable2">To Currency</lable>
+<select class="select" name="USD" id="ToCurrency">
+    <option value="USD">USD</option>
+    <option value="VND">VND</option>
+</select>
+<button onclick="Convert ()"> Convert</button>
+<h2 style="color: blue" id="result"></h2>
+<script>
+    function Convert() {
+
+        let inputAmount = document.getElementById('inputAmount').value;
+        console.log(inputAmount);
+        let fromCurrency = document.getElementById('fromCurrency').value;
+        console.log(fromCurrency);
+        let toCurrent = document.getElementById('ToCurrency').value;
+        console.log(toCurrent);
+        let result = document.getElementById('result').value;
+        let int = 0;
+        if (fromCurrency == 'VND' && toCurrent == 'USD') {
+            int = inputAmount * 0.00042;
+            document.getElementById('result').innerHTML = 'result :' + int + 'USD';
+        } else if (fromCurrency == 'USD' && toCurrent == 'VND') {
+            int = inputAmount * 23.795;
+            document.getElementById('result').innerHTML = 'result: ' + int + 'VND';
+        } else if (fromCurrency == 'VND' && toCurrent == 'VND') {
+            int = inputAmount;
+            document.getElementById('result').innerHTML = 'result: ' + int;
+            alert('trung gia tri');
+        } else if (fromCurrency == 'USD' && toCurrent == 'USD') {
+            int = inputAmount;
+            document.getElementById('result').innerHTML = 'result: ' + int;
+            alert('trung gia tri');
+        }
+    }
+</script>
+</body>
+</html>
